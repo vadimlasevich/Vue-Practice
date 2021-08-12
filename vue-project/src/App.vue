@@ -62,26 +62,24 @@ export default {
   max-width: 126rem;
   margin: 0 auto;
   padding: 0 3rem;
-
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
 }
 .todolist {
-  padding: 0 3rem;
+  width: 54rem;
+  border: 2px solid #7f4b13;
   &__header {
     background: #ffca93;
-    width: 54rem;
     height: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   &__title {
+    @include text;
     font-family: $OpenSans;
-    font-size: 2rem;
-    line-height: 2.8rem;
     color: #7f4b13;
   }
   &__items {
@@ -132,9 +130,8 @@ export default {
     background-size: 50% 50%;
   }
   &__btn-add {
+    @include text;
     font-family: $Inter;
-    font-size: 2rem;
-    line-height: 2.8rem;
     color: #ffca93;
     background: #ffecd8;
     border: 1.5px dashed #ffca93;
@@ -147,7 +144,6 @@ export default {
   }
   &__footer {
     background: #ffca93;
-    width: 54rem;
     height: 5rem;
     display: flex;
     align-items: center;
@@ -180,9 +176,8 @@ export default {
 }
 .task {
   &__text {
+    @include text;
     font-family: $Inter;
-    font-size: 2rem;
-    line-height: 2.8rem;
     color: #7f4b13;
   }
   &__btn-close {
@@ -196,6 +191,12 @@ export default {
     &:hover {
       border: 1.5px solid #fc8f1a;
     }
+    &:hover::before {
+      background-color: #fc8f1a;
+    }
+    &:hover::after {
+      background-color: #fc8f1a;
+    }
   }
   &__btn-close:before,
   &__btn-close:after {
@@ -205,13 +206,9 @@ export default {
     height: 1.2rem;
     width: 0.15rem;
     background-color: #ffca93;
-    left: 0.9rem;
+    left: 0.95rem;
     top: 0.45rem;
     transition: all 0.5s ease;
-    &:hover::before,
-    &:hover::after {
-      background-color: #fc8f1a;
-    }
   }
   &__btn-close:before {
     transform: rotate(45deg);
@@ -225,9 +222,8 @@ export default {
   &__line,
   &__number-amount,
   &__text {
+    @include text;
     font-family: $OpenSans;
-    font-size: 2rem;
-    line-height: 2.8rem;
     color: rgba(127, 75, 19, 0.42);
   }
   &__text {
@@ -239,6 +235,37 @@ export default {
   border-radius: 10px;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 500px) {
+  .todolist__btn-active {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .todolist {
+    &__items {
+      padding: 1rem;
+    }
+    &__task {
+      margin-bottom: 2rem;
+      padding: 0.5rem 1rem;
+    }
+    &__task > span::before {
+      margin-right: 0.5rem;
+    }
+    &__footer {
+      height: 10rem;
+      padding: 0 1rem;
+      flex-direction: column;
+      justify-content: center;
+      & button {
+        font-size: 1.8rem;
+      }
+    }
+  }
+  .task {
+    &__text {
+      font-size: 1.8rem;
+    }
+  }
 }
 </style>

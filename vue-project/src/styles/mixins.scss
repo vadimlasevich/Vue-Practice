@@ -7,3 +7,8 @@
 	background: transparent;
 	transition: all 0.8s ease;
 }
+
+@mixin text {
+	font-size: 2rem;
+    line-height: 2.8rem;
+}
