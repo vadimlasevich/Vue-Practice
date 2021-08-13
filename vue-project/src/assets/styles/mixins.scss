@@ -1,0 +1,14 @@
+@mixin footer-btn {
+	font-family: $OpenSans;
+	font-size: 2rem;
+	line-height: 2.8rem;
+	color: #c9955d;
+	padding: 0.3rem 1rem;
+	background: transparent;
+	transition: all 0.8s ease;
+}
+
+@mixin text {
+	font-size: 2rem;
+	line-height: 2.8rem;
+}
