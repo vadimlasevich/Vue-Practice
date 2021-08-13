@@ -278,10 +278,10 @@ export default {
       margin: 0;
     }
     &__task {
-      height: 10rem;
+      height: 5rem;
     }
     &__btn-add {
-      height: 10rem;
+      height: 5rem;
     }
   }
   .footer {
@@ -293,7 +293,7 @@ export default {
 @media screen and (max-width: 450px) {
   .todolist {
     &__items {
-      padding: 1rem;
+      padding: 2rem;
     }
     &__task {
       margin-bottom: 2rem;
@@ -315,6 +315,11 @@ export default {
   .task {
     &__text {
       font-size: 1.8rem;
+    }
+  }
+  .footer {
+    &__buttons {
+      margin-top: 1rem;
     }
   }
 }
