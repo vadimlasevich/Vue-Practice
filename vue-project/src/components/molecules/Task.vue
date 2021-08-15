@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ButtonClose from "./ButtonClose";
+import ButtonClose from "../atoms/ButtonClose";
 
 export default {
   name: "Task",
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/styles/style.scss";
+@import "@/assets/styles/style.scss";
 .todolist {
   &__task {
     background: #ffdfbe;
@@ -58,7 +58,7 @@ export default {
   &__task > input:checked + span::before {
     display: block;
     background: #feb567;
-    background-image: url("../assets/images/Vector.svg");
+    background-image: url("../../assets/images/Vector.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50% 50%;

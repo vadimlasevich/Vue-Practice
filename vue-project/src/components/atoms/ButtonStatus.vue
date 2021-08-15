@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/styles/style.scss";
+@import "@/assets/styles/style.scss";
 .footer {
   &__btn:not(:last-child) {
     margin-right: 2.5rem;

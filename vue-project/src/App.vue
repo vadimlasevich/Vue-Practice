@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import ItemsList from "./components/ItemsList.vue";
-import Footer from "./components/Footer.vue";
+import ItemsList from "./components/organisms/ItemsList.vue";
+import Footer from "./components/molecules/Footer.vue";
 
 export default {
   name: "App",

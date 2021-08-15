@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import TasksLeft from "./TasksLeft";
-import ButtonStatus from "./ButtonStatus";
+import TasksLeft from "../atoms/TasksLeft";
+import ButtonStatus from "../atoms/ButtonStatus";
 export default {
   components: {
     TasksLeft,
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/styles/style.scss";
+@import "@/assets/styles/style.scss";
 .todolist {
   &__footer {
     background: #ffca93;

@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Task from "./Task";
-import ButtonAdd from "./ButtonAdd";
+import Task from "../molecules/Task";
+import ButtonAdd from "../atoms/ButtonAdd";
 export default {
   components: {
     Task,
