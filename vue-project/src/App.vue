@@ -1,12 +1,12 @@
 <template>
   <div class="page" id="app">
-    <div class="page-image"></div>
+    <div class="pageImage"></div>
     <div class="todolist">
-      <div class="todolist__header">
-        <h1 class="todolist__title">to do list</h1>
+      <div class="todolistHeader">
+        <h1 class="todolistTitle">to do list</h1>
       </div>
-      <ItemsList v-bind:taskItem="taskItem" v-on:remove-task="removeTask" />
-      <Footer v-bind:buttonStatus="buttonStatus" />
+      <ItemsList />
+      <Footer />
     </div>
   </div>
 </template>
@@ -17,25 +17,7 @@ import Footer from "./components/organisms/Footer.vue";
 
 export default {
   name: "App",
-  data() {
-    return {
-      taskItem: [
-        { id: 1, taskText: "Task 1.1", completed: false },
-        { id: 2, taskText: "Task 2.2", completed: false },
-        { id: 3, taskText: "Task 3.4", completed: false },
-      ],
-      buttonStatus: [
-        { id: 1, buttonText: "All", completed: false },
-        { id: 2, buttonText: "Active", completed: false },
-        { id: 3, buttonText: "Completed", completed: false },
-      ],
-    };
-  },
-  methods: {
-    removeTask(id) {
-      this.taskItem = this.taskItem.filter((t) => t.id != id);
-    },
-  },
+  methods: {},
   components: {
     ItemsList,
     Footer,
@@ -65,19 +47,19 @@ export default {
   width: 54rem;
   border: 2px solid #7f4b13;
 }
-.todolist__header {
+.todolistHeader {
   background: #ffca93;
   height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.todolist__title {
+.todolistTitle {
   @include text;
   font-family: $OpenSans;
   color: #7f4b13;
 }
-.page-image {
+.pageImage {
   position: fixed;
   margin-left: 53rem;
   z-index: 1;
@@ -86,12 +68,12 @@ export default {
   height: 51.2rem;
 }
 @media screen and (max-width: 950px) {
-  .page-image {
+  .pageImage {
     margin-left: 35rem;
   }
 }
 @media screen and (max-width: 760px) {
-  .page-image {
+  .pageImage {
     display: none;
   }
 }

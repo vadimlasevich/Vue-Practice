@@ -4,33 +4,14 @@
       :class="$style.todolistBtnAdd"
       type="text"
       placeholder="Add a new task"
-      v-on:change="Value"
-      v-model="message"
     />
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      message: "",
-    };
-  },
   components: {},
-  methods: {
-    Value() {
-      if (this.message.trim()) {
-        const newTask = {
-          id: 22,
-          taskText: this.message,
-          completed: false,
-        };
-        this.$emit("new-task", newTask);
-        this.message = "";
-      }
-    },
-  },
+  methods: {},
 };
 </script>
 

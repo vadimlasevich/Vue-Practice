@@ -1,7 +1,7 @@
 <template>
   <div>
     <label :class="$style.footerBtn">
-      <input type="radio" name="footer-input" v-bind:button="button" />
+      <input type="radio" name="footer-input" :button="button" />
       <span>{{ button.buttonText }}</span>
     </label>
   </div>

@@ -1,13 +1,8 @@
 <template>
   <div :class="$style.todolistItems">
     <div :class="$style.todolistList">
-      <Task
-        v-for="item of taskItem"
-        :key="item.taskText"
-        v-bind:item="item"
-        v-on:remove-task="removeTask"
-      />
-      <ButtonAdd v-on:new-task="newTask" />
+      <Task v-for="item of taskItem" :key="item.id" :item="item" />
+      <ButtonAdd />
     </div>
   </div>
 </template>
@@ -17,7 +12,15 @@ import Task from "../molecules/Task";
 import ButtonAdd from "../atoms/ButtonAdd";
 
 export default {
-  props: ["taskItem"],
+  data() {
+    return {
+      taskItem: [
+        { id: 1, taskText: "Task 1.1", completed: false },
+        { id: 2, taskText: "Task 2.2", completed: false },
+        { id: 3, taskText: "Task 3.4", completed: false },
+      ],
+    };
+  },
   components: {
     Task,
     ButtonAdd,

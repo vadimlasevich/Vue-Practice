@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.todolistFooter">
     <TasksLeft />
-    <FooterButtons v-bind:buttonStatus="buttonStatus" />
+    <FooterButtons :buttonStatus="buttonStatus" />
   </div>
 </template>
 
@@ -9,7 +9,15 @@
 import TasksLeft from "../atoms/TasksLeft";
 import FooterButtons from "../molecules/FooterButtons";
 export default {
-  props: ["buttonStatus"],
+  data() {
+    return {
+      buttonStatus: [
+        { id: 1, buttonText: "All", completed: false },
+        { id: 2, buttonText: "Active", completed: false },
+        { id: 3, buttonText: "Completed", completed: false },
+      ],
+    };
+  },
   components: {
     TasksLeft,
     FooterButtons,

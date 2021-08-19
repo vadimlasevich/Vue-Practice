@@ -1,13 +1,9 @@
 <template>
   <div>
     <label :class="$style.todolistTask">
-      <input
-        type="checkbox"
-        value="check-1"
-        v-on:change="item.completed = !item.completed"
-      />
+      <input type="checkbox" />
       <span :class="$style.taskText">{{ item.taskText }}</span>
-      <ButtonClose v-bind:item="item" v-on:remove-task="removeTask" />
+      <ButtonClose />
     </label>
   </div>
 </template>
@@ -25,11 +21,6 @@ export default {
   },
   components: {
     ButtonClose,
-  },
-  methods: {
-    removeTask(id) {
-      this.$emit("remove-task", id);
-    },
   },
 };
 </script>

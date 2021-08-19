@@ -2,8 +2,8 @@
   <div :class="$style.footerButtons">
     <ButtonStatus
       v-for="button of buttonStatus"
-      :key="button.buttonText"
-      v-bind:button="button"
+      :key="button.id"
+      :button="button"
     />
   </div>
 </template>

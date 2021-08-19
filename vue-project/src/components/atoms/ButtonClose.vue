@@ -1,20 +1,11 @@
 <template>
   <div>
-    <button
-      :class="$style.taskBtnClose"
-      v-on:click="$emit('remove-task', item.id)"
-    ></button>
+    <button :class="$style.taskBtnClose"></button>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    item: {
-      type: Object,
-      require: true,
-    },
-  },
   components: {},
 };
 </script>
