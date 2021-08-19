@@ -1,51 +1,44 @@
 <template>
-  <div class="footer__buttons">
-    <label class="footer__btn">
-      <input class="footer__input" type="radio" name="footer-input" />
-      <span>All</span>
-    </label>
-    <label class="footer__btn">
-      <input class="footer__input" type="radio" name="footer-input" />
-      <span>Active</span>
-    </label>
-    <label class="footer__btn">
-      <input class="footer__input" type="radio" name="footer-input" />
-      <span>Completed</span>
+  <div>
+    <label :class="$style.footerBtn">
+      <input type="radio" name="footer-input" v-bind:button="button" />
+      <span>{{ button.buttonText }}</span>
     </label>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    button: {
+      type: Object,
+      require: true,
+    },
+  },
   components: {},
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 @import "@/assets/styles/style.scss";
-.footer {
-  &__btn:not(:last-child) {
-    margin-right: 2.5rem;
+.footerBtn {
+  margin-left: 2.5rem;
+}
+.footerBtn {
+  input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
   }
-  &__buttons {
-    display: flex;
+  span {
+    @include footer-btn;
+    user-select: none;
+    cursor: pointer;
+    border: none;
   }
-  &__btn {
-    & > input {
-      opacity: 0;
-      position: absolute;
-      z-index: -1;
-    }
-    & > span {
-      @include footer-btn;
-      user-select: none;
-      cursor: pointer;
-      border: none;
-    }
-    & > input:checked + span {
-      border: 1px solid #c9955d;
-      border-radius: 10px;
-    }
+  input:checked + span {
+    border: 1px solid #c9955d;
+    border-radius: 10px;
   }
 }
 </style>
