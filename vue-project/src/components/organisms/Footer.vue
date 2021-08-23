@@ -1,6 +1,9 @@
 <template>
   <div :class="$style.footer">
-    <TasksLeft />
+    <div :class="$style.blockLeft">
+      <span :class="$style.blockLeftNumber">1/3</span>
+      <p :class="$style.blockLeftText">left</p>
+    </div>
     <div :class="$style.footerButtons">
       <ButtonStatus
         v-for="button of buttonStatus"
@@ -13,7 +16,6 @@
 </template>
 
 <script>
-import TasksLeft from "../atoms/TasksLeft";
 import ButtonStatus from "../molecules/ButtonStatus";
 export default {
   data() {
@@ -26,7 +28,6 @@ export default {
     };
   },
   components: {
-    TasksLeft,
     ButtonStatus,
   },
 };
@@ -44,6 +45,19 @@ export default {
 }
 .footerButtons {
   display: flex;
+}
+.blockLeft {
+  display: flex;
+  align-items: center;
+}
+.blockLeftNumber,
+.blockLeftText {
+  @include text;
+  font-family: $OpenSans;
+  color: rgba(127, 75, 19, 0.42);
+}
+.blockLeftText {
+  margin-left: 0.5rem;
 }
 @media screen and (max-width: 450px) {
   .footer {
