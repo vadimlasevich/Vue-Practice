@@ -1,7 +1,12 @@
 <template>
   <div :class="$style.todolistItems">
     <div :class="$style.todolistList">
-      <Task v-for="item of taskItem" :key="item.id" :item="item" />
+      <Task
+        v-for="task of taskItem"
+        :key="task.id"
+        :taskText="task.task"
+        :taskCompleted="task.completed"
+      />
       <ButtonAdd />
     </div>
   </div>
@@ -15,23 +20,15 @@ export default {
   data() {
     return {
       taskItem: [
-        { id: 1, taskText: "Task 1.1", completed: false },
-        { id: 2, taskText: "Task 2.2", completed: false },
-        { id: 3, taskText: "Task 3.4", completed: false },
+        { id: 1, task: "Task 1", completed: false },
+        { id: 2, task: "Task 2", completed: false },
+        { id: 3, task: "Task 3", completed: false },
       ],
     };
   },
   components: {
     Task,
     ButtonAdd,
-  },
-  methods: {
-    removeTask(id) {
-      this.$emit("remove-task", id);
-    },
-    newTask(item) {
-      this.taskItem.push(item);
-    },
   },
 };
 </script>

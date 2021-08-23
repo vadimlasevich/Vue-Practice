@@ -1,23 +1,16 @@
 <template>
-  <div>
-    <input
-      :class="$style.todolistBtnAdd"
-      type="text"
-      placeholder="Add a new task"
-    />
-  </div>
+  <input :class="$style.buttonAdd" type="text" placeholder="Add a new task" />
 </template>
 
 <script>
 export default {
   components: {},
-  methods: {},
 };
 </script>
 
 <style lang="scss" module>
 @import "@/assets/styles/style.scss";
-.todolistBtnAdd {
+.buttonAdd {
   @include text;
   font-family: $Inter;
   color: #7f4b13;
@@ -27,14 +20,14 @@ export default {
   padding: 1.1rem;
   transition: all 0.5s ease;
   width: 100%;
-}
-.todolistBtnAdd::placeholder {
-  text-align: center;
-  color: #ffca93;
+  &::placeholder {
+    text-align: center;
+    color: #ffca93;
+  }
 }
 
 @media screen and (max-width: 500px) {
-  .todolistBtnAdd {
+  .buttonAdd {
     height: 5rem;
   }
 }

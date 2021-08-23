@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <div :class="$style.footerBlockLeft">
-      <span :class="$style.blockLeftNumber">1/3</span>
-      <h3 :class="$style.blockLeftText">left</h3>
-    </div>
+  <div :class="$style.blockLeft">
+    <span :class="$style.blockLeftNumber">1/3</span>
+    <h3 :class="$style.blockLeftText">left</h3>
   </div>
 </template>
 
@@ -15,7 +13,7 @@ export default {
 
 <style lang="scss" module>
 @import "@/assets/styles/style.scss";
-.footerBlockLeft {
+.blockLeft {
   display: flex;
   align-items: center;
 }

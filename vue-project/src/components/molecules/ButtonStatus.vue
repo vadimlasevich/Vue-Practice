@@ -1,19 +1,15 @@
 <template>
-  <div>
-    <label :class="$style.footerBtn">
-      <input type="radio" name="footer-input" :button="button" />
-      <span>{{ button.buttonText }}</span>
-    </label>
-  </div>
+  <label :class="$style.footerBtn">
+    <input type="radio" name="footer-input" :checked="buttonCompleted" />
+    <span>{{ buttonTitle }}</span>
+  </label>
 </template>
 
 <script>
 export default {
   props: {
-    button: {
-      type: Object,
-      require: true,
-    },
+    buttonTitle: String,
+    buttonCompleted: Boolean,
   },
   components: {},
 };
@@ -23,20 +19,18 @@ export default {
 @import "@/assets/styles/style.scss";
 .footerBtn {
   margin-left: 2.5rem;
-}
-.footerBtn {
-  input {
+  & > input {
     opacity: 0;
     position: absolute;
     z-index: -1;
   }
-  span {
+  & > span {
     @include footer-btn;
     user-select: none;
     cursor: pointer;
     border: none;
   }
-  input:checked + span {
+  & > input:checked + span {
     border: 1px solid #c9955d;
     border-radius: 10px;
   }
