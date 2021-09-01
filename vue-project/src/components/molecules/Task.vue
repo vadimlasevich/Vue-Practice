@@ -1,21 +1,45 @@
 <template>
   <div>
     <label :class="$style.task">
-      <input type="checkbox" :checked="taskCompleted" />
+      <input
+        type="checkbox"
+        :checked="taskCompleted"
+        @click="change"
+        v-model="check"
+      />
       <span :class="$style.taskText">{{ taskText }}</span>
-      <ButtonClose />
+      <ButtonClose :task="task" />
     </label>
   </div>
 </template>
 
 <script>
 import ButtonClose from "../atoms/ButtonClose";
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "Task",
+  data() {
+    return {
+      check: "",
+    };
+  },
   props: {
+    task: {},
     taskText: String,
     taskCompleted: Boolean,
+  },
+  computed: {
+    ...mapGetters(["allTask"]),
+  },
+  methods: {
+    ...mapActions(["changeTask"]),
+    change() {
+      this.changeTask({
+        completed: !this.check,
+      });
+    },
   },
   components: {
     ButtonClose,
