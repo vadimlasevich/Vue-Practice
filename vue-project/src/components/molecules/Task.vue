@@ -1,12 +1,7 @@
 <template>
   <div>
     <label :class="$style.task">
-      <input
-        type="checkbox"
-        :checked="taskCompleted"
-        @click="change"
-        v-model="check"
-      />
+      <input type="checkbox" :checked="taskCompleted" @click="change" />
       <span :class="$style.taskText">{{ taskText }}</span>
       <ButtonClose :task="task" />
     </label>
@@ -16,7 +11,7 @@
 <script>
 import ButtonClose from "../atoms/ButtonClose";
 import { mapGetters } from "vuex";
-import { mapActions } from "vuex";
+import { mapMutations } from "vuex";
 
 export default {
   name: "Task",
@@ -27,6 +22,7 @@ export default {
   },
   props: {
     task: {},
+    id: Number,
     taskText: String,
     taskCompleted: Boolean,
   },
@@ -34,11 +30,9 @@ export default {
     ...mapGetters(["allTask"]),
   },
   methods: {
-    ...mapActions(["changeTask"]),
+    ...mapMutations(["changeTask"]),
     change() {
-      this.changeTask({
-        completed: !this.check,
-      });
+      this.changeTask(this.id);
     },
   },
   components: {

@@ -10,8 +10,9 @@
       <ButtonStatus
         v-for="button of footerButtons"
         :key="button.id"
-        :buttonTitle="button.title"
-        :buttonCompleted="button.completed"
+        :id="button.id"
+        :title="button.title"
+        :completed="button.completed"
       />
     </div>
   </div>

@@ -2,13 +2,14 @@
   <div :class="$style.todolistItems">
     <div :class="$style.todolistList">
       <Task
-        v-for="task of allTask"
+        v-for="task of showTasks"
         :key="task.id"
         :task="task"
+        :id="task.id"
         :taskText="task.task"
         :taskCompleted="task.completed"
       />
-      <form @submit.prevent="addTaskI">
+      <form @submit.prevent="submit">
         <input
           :class="$style.buttonAdd"
           type="text"
@@ -22,7 +23,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { mapActions } from "vuex";
+import { mapMutations } from "vuex";
 
 import Task from "../molecules/Task";
 
@@ -33,17 +34,14 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["addTask"]),
-    addTaskI() {
-      this.addTask({
-        id: Math.random(),
-        task: this.newTask,
-      });
+    ...mapMutations(["addTask"]),
+    submit() {
+      this.addTask(this.newTask);
       this.newTask = "";
     },
   },
   computed: {
-    ...mapGetters(["allTask"]),
+    ...mapGetters(["showTasks"]),
   },
   components: {
     Task,

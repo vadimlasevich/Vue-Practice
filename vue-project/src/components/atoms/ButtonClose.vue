@@ -3,14 +3,14 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapMutations } from "vuex";
 
 export default {
   props: {
     task: {},
   },
   methods: {
-    ...mapActions(["deleteTask"]),
+    ...mapMutations(["deleteTask"]),
   },
 };
 </script>
