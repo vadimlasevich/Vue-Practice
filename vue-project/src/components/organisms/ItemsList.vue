@@ -40,6 +40,9 @@ export default {
       this.newTask = "";
     },
   },
+  mounted() {
+    this.$store.dispatch("STORAGE");
+  },
   computed: {
     ...mapGetters(["showTasks"]),
   },
