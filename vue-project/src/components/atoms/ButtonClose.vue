@@ -1,10 +1,17 @@
 <template>
-  <button :class="$style.buttonClose"></button>
+  <button :class="$style.buttonClose" @click="deleteTask(task.id)"></button>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
-  components: {},
+  props: {
+    task: {},
+  },
+  methods: {
+    ...mapMutations(["deleteTask"]),
+  },
 };
 </script>
 

@@ -2,38 +2,55 @@
   <div :class="$style.todolistItems">
     <div :class="$style.todolistList">
       <Task
-        v-for="task of taskItem"
+        v-for="task of showTasks"
         :key="task.id"
+        :task="task"
+        :id="task.id"
         :taskText="task.task"
         :taskCompleted="task.completed"
       />
-      <ButtonAdd />
+      <form @submit.prevent="submit">
+        <input
+          :class="$style.buttonAdd"
+          type="text"
+          placeholder="Add a new task"
+          v-model="newTask"
+        />
+      </form>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import { mapMutations } from "vuex";
+
 import Task from "../molecules/Task";
-import ButtonAdd from "../atoms/ButtonAdd";
 
 export default {
   data() {
     return {
-      taskItem: [
-        { id: 1, task: "Task 1", completed: false },
-        { id: 2, task: "Task 2", completed: false },
-        { id: 3, task: "Task 3", completed: false },
-      ],
+      newTask: "",
     };
+  },
+  methods: {
+    ...mapMutations(["addTask"]),
+    submit() {
+      this.addTask(this.newTask);
+      this.newTask = "";
+    },
+  },
+  computed: {
+    ...mapGetters(["showTasks"]),
   },
   components: {
     Task,
-    ButtonAdd,
   },
 };
 </script>
 
 <style lang="scss" module>
+@import "@/assets/styles/style.scss";
 .todolistItems {
   background: #fff;
   padding: 3rem;
@@ -42,7 +59,27 @@ export default {
   display: flex;
   flex-direction: column;
 }
+.buttonAdd {
+  @include text;
+  font-family: $Inter;
+  color: #7f4b13;
+  background: #ffecd8;
+  border: 1.5px dashed #ffca93;
+  border-radius: 10px;
+  padding: 1.1rem;
+  transition: all 0.5s ease;
+  width: 100%;
+  &::placeholder {
+    text-align: center;
+    color: #ffca93;
+  }
+}
 
+@media screen and (max-width: 500px) {
+  .buttonAdd {
+    height: 5rem;
+  }
+}
 @media screen and (max-width: 450px) {
   .todolistItems {
     padding: 2rem;

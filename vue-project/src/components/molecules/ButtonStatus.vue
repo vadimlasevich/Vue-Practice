@@ -1,17 +1,30 @@
 <template>
   <label :class="$style.footerBtn">
-    <input type="radio" name="footer-input" :checked="buttonCompleted" />
-    <span>{{ buttonTitle }}</span>
+    <input
+      type="radio"
+      name="footer-input"
+      @click="change"
+      :checked="completed"
+    />
+    <span>{{ title }}</span>
   </label>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   props: {
-    buttonTitle: String,
-    buttonCompleted: Boolean,
+    id: String,
+    title: String,
+    completed: Boolean,
   },
-  components: {},
+  methods: {
+    ...mapMutations(["changeBtnStatus", "changeBtnName"]),
+    change() {
+      this.changeBtnStatus(this.id);
+      this.changeBtnName(this.title);
+    },
+  },
 };
 </script>
 

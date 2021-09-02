@@ -1,15 +1,18 @@
 <template>
   <div :class="$style.footer">
     <div :class="$style.blockLeft">
-      <span :class="$style.blockLeftNumber">1/3</span>
+      <span :class="$style.blockLeftNumber"
+        >{{ tasksCompleted }}/{{ tasksLength }}</span
+      >
       <p :class="$style.blockLeftText">left</p>
     </div>
     <div :class="$style.footerButtons">
       <ButtonStatus
-        v-for="button of buttonStatus"
+        v-for="button of footerButtons"
         :key="button.id"
-        :buttonTitle="button.title"
-        :buttonCompleted="button.completed"
+        :id="button.id"
+        :title="button.title"
+        :completed="button.completed"
       />
     </div>
   </div>
@@ -17,15 +20,10 @@
 
 <script>
 import ButtonStatus from "../molecules/ButtonStatus";
+import { mapGetters } from "vuex";
 export default {
-  data() {
-    return {
-      buttonStatus: [
-        { id: 1, title: "All", completed: true },
-        { id: 2, title: "Active", completed: false },
-        { id: 3, title: "Completed", completed: false },
-      ],
-    };
+  computed: {
+    ...mapGetters(["footerButtons", "tasksLength", "tasksCompleted"]),
   },
   components: {
     ButtonStatus,
