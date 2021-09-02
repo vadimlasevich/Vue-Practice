@@ -1,14 +1,15 @@
+import { v4 as uuidv4 } from 'uuid'
 export default {
 	state: {
 		taskItem: [
-			{ id: 1, task: "Task 1", completed: false },
-			{ id: 2, task: "Task 2", completed: false },
-			{ id: 3, task: "Task 3", completed: false },
+			{ id: uuidv4(), task: "Task 1", completed: false },
+			{ id: uuidv4(), task: "Task 2", completed: false },
+			{ id: uuidv4(), task: "Task 3", completed: false },
 		],
 		buttonStatus: [
-			{ id: 1, title: "All", completed: true },
-			{ id: 2, title: "Active", completed: false },
-			{ id: 3, title: "Completed", completed: false },
+			{ id: uuidv4(), title: "All", completed: true },
+			{ id: uuidv4(), title: "Active", completed: false },
+			{ id: uuidv4(), title: "Completed", completed: false },
 		],
 		title: "All"
 	},
@@ -39,7 +40,7 @@ export default {
 	mutations: {
 		addTask(state, newTask) {
 			if (newTask) {
-				const task = { task: newTask, id: state.taskItem.length + 1, completed: false }
+				const task = { task: newTask, id: uuidv4(), completed: false }
 				state.taskItem.unshift(task);
 			}
 		},

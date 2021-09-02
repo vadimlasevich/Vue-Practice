@@ -14,7 +14,7 @@
 import { mapMutations } from "vuex";
 export default {
   props: {
-    id: Number,
+    id: String,
     title: String,
     completed: Boolean,
   },

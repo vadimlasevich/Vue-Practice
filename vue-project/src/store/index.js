@@ -5,7 +5,7 @@ import todoList from './modules/todoList'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  modules: {
-    todoList
-  }
+	modules: {
+		todoList
+	}
 })

@@ -22,7 +22,7 @@ export default {
   },
   props: {
     task: {},
-    id: Number,
+    id: String,
     taskText: String,
     taskCompleted: Boolean,
   },
