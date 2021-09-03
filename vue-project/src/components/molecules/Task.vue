@@ -10,8 +10,7 @@
 
 <script>
 import ButtonClose from "../atoms/ButtonClose";
-import { mapGetters } from "vuex";
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "Task",
