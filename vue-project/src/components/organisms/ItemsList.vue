@@ -56,24 +56,24 @@ export default {
 .todolistItems {
   background: #fff;
   padding: 3rem;
-}
-.todolistList {
-  display: flex;
-  flex-direction: column;
-}
-.buttonAdd {
-  @include text;
-  font-family: $Inter;
-  color: #7f4b13;
-  background: #ffecd8;
-  border: 1.5px dashed #ffca93;
-  border-radius: 10px;
-  padding: 1.1rem;
-  transition: all 0.5s ease;
-  width: 100%;
-  &::placeholder {
-    text-align: center;
-    color: #ffca93;
+  .todolistList {
+    display: flex;
+    flex-direction: column;
+    .buttonAdd {
+      @include text;
+      font-family: $Inter;
+      color: #7f4b13;
+      background: #ffecd8;
+      border: 1.5px dashed #ffca93;
+      border-radius: 10px;
+      padding: 1.1rem;
+      transition: all 0.5s ease;
+      width: 100%;
+      &::placeholder {
+        text-align: center;
+        color: #ffca93;
+      }
+    }
   }
 }
 

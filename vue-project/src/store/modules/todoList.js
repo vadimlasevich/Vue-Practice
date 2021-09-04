@@ -65,7 +65,7 @@ export default {
 		},
 		storage(state) {
 			const item = localStorage.getItem('taskItems');
-			state.taskItem = JSON.parse(item);
+			state.taskItem = JSON.parse(item || new Array());
 		}
 	},
 	actions: {

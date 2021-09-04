@@ -40,23 +40,24 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 0 3rem;
+  .blockLeft {
+    display: flex;
+    align-items: center;
+    .blockLeftNumber,
+    .blockLeftText {
+      @include text;
+      font-family: $OpenSans;
+      color: rgba(127, 75, 19, 0.42);
+    }
+    .blockLeftText {
+      margin-left: 0.5rem;
+    }
+  }
+  .footerButtons {
+    display: flex;
+  }
 }
-.footerButtons {
-  display: flex;
-}
-.blockLeft {
-  display: flex;
-  align-items: center;
-}
-.blockLeftNumber,
-.blockLeftText {
-  @include text;
-  font-family: $OpenSans;
-  color: rgba(127, 75, 19, 0.42);
-}
-.blockLeftText {
-  margin-left: 0.5rem;
-}
+
 @media screen and (max-width: 450px) {
   .footer {
     height: 10rem;
