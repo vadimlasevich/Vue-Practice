@@ -10,8 +10,7 @@
 
 <script>
 import ButtonClose from "../atoms/ButtonClose";
-import { mapGetters } from "vuex";
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "Task",
@@ -85,12 +84,13 @@ export default {
     background-position: center center;
     background-size: 50% 50%;
   }
+  .taskText {
+    @include text;
+    font-family: $Inter;
+    color: #7f4b13;
+  }
 }
-.taskText {
-  @include text;
-  font-family: $Inter;
-  color: #7f4b13;
-}
+
 @media screen and (max-width: 500px) {
   .task {
     height: 5rem;
@@ -104,9 +104,9 @@ export default {
     & > span::before {
       margin-right: 0.5rem;
     }
-  }
-  .taskText {
-    font-size: 1.8rem;
+    .taskText {
+      font-size: 1.8rem;
+    }
   }
 }
 </style>

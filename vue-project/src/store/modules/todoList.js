@@ -43,14 +43,17 @@ export default {
 				const task = { task: newTask, id: uuidv4(), completed: false }
 				state.taskItem.unshift(task);
 			}
+			localStorage.setItem('taskItems', JSON.stringify(state.taskItem))
 		},
 		deleteTask(state, id) {
 			state.taskItem = state.taskItem.filter(task => task.id !== id)
+			localStorage.setItem('taskItems', JSON.stringify(state.taskItem))
 		},
 		changeTask(state, id) {
 			state.taskItem = state.taskItem.map(task =>
 				task.id === id ? { ...task, completed: !task.completed } : task
 			);
+			localStorage.setItem('taskItems', JSON.stringify(state.taskItem))
 		},
 		changeBtnName(state, title) {
 			state.title = title;
@@ -60,6 +63,14 @@ export default {
 				btn.id === id ? { ...btn, completed: btn.completed } : btn
 			);
 		},
+		storage(state) {
+			const item = localStorage.getItem('taskItems');
+			state.taskItem = JSON.parse(item || new Array());
+		}
 	},
-	actions: {},
+	actions: {
+		STORAGE({ commit }) {
+			commit('storage')
+		}
+	},
 }
